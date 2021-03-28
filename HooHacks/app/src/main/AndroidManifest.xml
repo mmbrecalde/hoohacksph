@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hoohacks">
+    package="com.example.objectdetection">
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -8,8 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HooHacks">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Learn"></activity>
+        <activity android:name=".Maps" />
         <activity android:name=".MainActivity">
+            android:name=".activity.ObjectDetection"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
