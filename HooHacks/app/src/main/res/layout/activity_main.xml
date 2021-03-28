@@ -22,6 +22,22 @@
             app:layout_constraintVertical_bias="0.0">
 
 
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="418dp"
+                android:layout_height="77dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="-1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="0dp"
+                android:background="#009688"
+                android:textColorLink="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <androidx.camera.view.PreviewView
                 android:id="@+id/previewView"
                 android:layout_width="match_parent"
@@ -35,8 +51,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </androidx.camera.view.PreviewView>
+                app:layout_constraintTop_toTopOf="parent"></androidx.camera.view.PreviewView>
 
             <TextView
                 android:id="@+id/editText"
@@ -76,10 +91,10 @@
                 android:background="#009688"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
+                android:hint="Sign Language Detector"
                 android:textColor="#AB7CD400"
                 android:textSize="28sp"
                 android:visibility="visible"
-                android:hint="Object Detector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
