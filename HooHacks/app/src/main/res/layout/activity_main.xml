@@ -54,7 +54,7 @@
                 app:layout_constraintTop_toTopOf="parent"></androidx.camera.view.PreviewView>
 
             <TextView
-                android:id="@+id/editText"
+                android:id="@+id/editWordText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
