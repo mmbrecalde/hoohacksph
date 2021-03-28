@@ -37,6 +37,3 @@ We are really proud that we are able to create an application like this in the f
 
 ## What's next for SignTech
 We hope that in the future, we get to **increase the number of data (images)** by including all the sign language movements to make it complete. We also want to improve the **accuracy of the detector**. Moreover, we want to improve our **UI and UX**. 
-
-## Google Cloud Platform Sponsor Prize Application
-We, the developers of SignTech application, apply for Google Cloud Platform Sponsor Prize for the following reasons: first, we used **Maps API** to add a Google Map to our site; and second, we used **Location API** to retrieve data about user location. For these two APIs, we used them for the second section of our application wherein the user could look for businesses that employ mute and deaf people in the Google Map, basically finding businesses that are deaf and mute-friendly near his/her location. Also, we made use of **Tensorflow Lite** which is a slimmed-down version of Google’s TensorFlow framework for training machine learning models. We also used **Tensorflow Lite Model Maker** to create our custom model. We used **MLKit Vision API (Object Detection and Tracking)** to help us in the processing of camera input/stream. We used **Teachable Machine** for the gathering of data (images) for our model. 
