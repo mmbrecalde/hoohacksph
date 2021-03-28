@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
 
         val localModel = LocalModel.Builder()
-            .setAssetFilePath("poses.tflite")
+            .setAssetFilePath("sample1.tflite")
             .build()
 
         val customObjectDetectorOptions =
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         var textView = this.findViewById<TextView>(R.id.TextObject)
         val preview : Preview = Preview.Builder().build()
         val cameraSelector : CameraSelector = CameraSelector.Builder()
-            .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
+            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
 
         val imageAnalysis = ImageAnalysis.Builder()
