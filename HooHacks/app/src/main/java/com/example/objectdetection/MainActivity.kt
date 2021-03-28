@@ -1,10 +1,18 @@
 package com.example.objectdetection
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.RecognizerIntent
+import android.speech.tts.TextToSpeech
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
@@ -19,23 +27,63 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.objects.ObjectDetection
 import com.google.mlkit.vision.objects.ObjectDetector
 import com.google.mlkit.vision.objects.custom.CustomObjectDetectorOptions
-import android.speech.tts.TextToSpeech
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.Button
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var objectDetector: ObjectDetector
     private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
     lateinit var mTTS:TextToSpeech
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main) // data binding
+
+        var speechButton = this.findViewById<ImageView>(R.id.imageView)
+        var speechText = this.findViewById<TextView>(R.id.editText)
+
+
+
+//        speechButton.setOnClickListener(View.OnClickListener {
+//            val speechIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+//            speechIntent.putExtra(
+//                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+//                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+//            )
+//            speechIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
+//            startActivityForResult(speechIntent, MainActivity.RECOGNIZER_RESULT)
+//        }) speechButton = this.findViewById<ImageView>(R.id.imageView)
+//        speechText = findViewById(R.id.editText)
+
+        speechButton.setOnClickListener(View.OnClickListener {
+            val speechIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            speechIntent.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            )
+            speechIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text")
+            startActivityForResult(speechIntent, MainActivity.RECOGNIZER_RESULT)
+        })
+
+
+        fun onActivityResult(
+            requestCode: Int,
+            resultCode: Int,
+            data: Intent?
+        ) {
+            if (requestCode == MainActivity.RECOGNIZER_RESULT && resultCode == Activity.RESULT_OK) {
+                val matches =
+                    data!!.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                speechText.text = matches[0].toString()
+            }
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+
         cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
         cameraProviderFuture.addListener(Runnable {
@@ -70,6 +118,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
 
     @SuppressLint("UnsafeExperimentalUsageError")
     private fun bindPreview(cameraProvider : ProcessCameraProvider) {
@@ -134,5 +184,18 @@ class MainActivity : AppCompatActivity() {
 
 
         cameraProvider.bindToLifecycle(this as LifecycleOwner, cameraSelector, imageAnalysis, preview)
+    }
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        if (requestCode == RECOGNIZER_RESULT && resultCode == Activity.RESULT_OK) {
+//            val matches = data!!.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+//            speechText!!.setText(matches!![0].toString())
+//        }
+//        super.onActivityResult(requestCode, resultCode, data)
+//    }
+
+
+    companion object {
+        private const val RECOGNIZER_RESULT = 1
     }
 }

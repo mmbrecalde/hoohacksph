@@ -3,4 +3,25 @@
     <string name="turn_on">Turn On</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="linktosite">
+        <a href="https://www.hearinglikeme.com/how-to-learn-sign-language/">How to Learn Sign Language</a>
+    </string>
+
+    <string name="udemy">
+        <a href="https://www.udemy.com/">Learn Sign Language at Udemy</a>
+    </string>
+
+    <string name="lynda">
+        <a href="https://www.lynda.com/search?q=sign+language/">Learn Sign Language at Lynda</a>
+    </string>
+
+    <string name="edx">
+        <a href="https://www.edx.org/">Learn Sign Language at EDX</a>
+    </string>
+
+    <string name="skillshare">
+        <a href="https://join.skillshare.com/general-14day/">Learn Sign Language at Skill Share</a>
+    </string>
+
 </resources>

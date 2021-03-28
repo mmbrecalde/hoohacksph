@@ -25,15 +25,41 @@
             <androidx.camera.view.PreviewView
                 android:id="@+id/previewView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="649dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="-67dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="197dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
             </androidx.camera.view.PreviewView>
+
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="0dp"
+                android:layout_marginTop="580dp"
+                android:ems="20"
+                android:hint="Speech to Text"
+                android:inputType="textPersonName"
+                android:background="#009688"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:textColor="#AB7CD400"
+                android:textSize="28sp"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="63dp"
+                android:layout_height="65dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_baseline_mic_none_24"
+                android:layout_marginTop="620dp"/>
 
             <TextView
                 android:id="@+id/TextObject"
@@ -47,6 +73,7 @@
                 android:textColor="#AB7CD400"
                 android:textSize="28sp"
                 android:visibility="visible"
+                android:hint="Object Detector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
